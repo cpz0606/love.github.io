@@ -1,0 +1,64 @@
+body {
+    background-image: linear-gradient(25deg, #196b97, #5586ab, #81a3c0, #aac0d5)
+
+}
+
+div {
+    width: 700px;
+    height: 324x;
+    background-color: rgb(255, 255, 255);
+    /* box-shadow h-s必有 水平阴影 v-s必有 垂直阴影 blur模糊距离 spreod 阴影尺寸 color inset 改为内部阴影 */
+    box-shadow: 3px 7px 14px 20px white;
+    margin: 50px auto;
+}
+
+img {
+    width: 700px;
+    height: 1250px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.bon {
+    border-radius: 25%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    /* 行高  */
+    line-height: 50px;
+    transition: .3s;
+    /* 鼠标放上去变小手 */
+    cursor: pointer;
+}
+
+.bon:hover {
+    background-color: #d15a39;
+}
+
+.bon li:hover {
+    background-color: #ffb29d;
+}
+
+.bon ul li {
+    border-radius: 25%;
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: #e07a5f;
+}
+
+.bon:hover li {
+    height: 50px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dj {
+    position: fixed;
+    top: 500px;
+    right: 20px;
+    justify-content: center;
+}

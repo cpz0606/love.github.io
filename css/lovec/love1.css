@@ -1,0 +1,229 @@
+.shell {
+    width: 100%;
+    position: relative;
+    padding: 80px 0;
+    /* 过渡效果 */
+    /* transition：属性，property ； 延续时间，duration ； 速率变化，timing-function
+    ； 延迟时间， delay ； ease 逐渐变慢 默认值*/
+    transition: 0.3s ease 0s;            /* 决定背景图片的位置是在视口内固定，或着随着包含它的区块滚动 */
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.shell:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(90, 90, 90, 0.8);
+    /* 配合before和after使用 */
+    content: "";
+}
+
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.title {
+    color: #fff;
+    font-size: 46px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.timeline {
+    display: flex;
+    margin: 0 auto;
+    /* 指定flex元素单行显示还是多行显示 */
+    flex-wrap: wrap;            /* 指定了内部元素是如何在flex容器中布局的，定义了主轴的方向
+    column：flex的主轴和块轴相同，主轴起点与主轴终点和书写模式的前后点相同 */
+    flex-direction: column;
+    max-width: 700px;
+    position: relative;
+}
+
+.content-title {
+    font-weight: normal;
+    font-size: 66px;
+    margin: -10px 0 0 0;
+    transition: 0.4s;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.content-desc {
+    margin: 0;
+    font-size: 15px;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 25px;
+}
+
+.timeline:before {
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+    content: "";
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.item {
+    padding: 40px 0;
+    opacity: 0.3;
+    filter: blur(2px);
+    transition: 0.5s;
+    box-sizing: border-box;
+    width: calc(50% - 40px);
+    display: flex;
+    position: relative;
+    transform: translateY(-80px);
+}
+
+.item:before {
+    content: attr(data-text);
+    letter-spacing: 3px;
+    width: 100%;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    top: 70%;
+    margin-top: -5px;
+    padding-left: 15px;
+    opacity: 0;
+    right: calc(-100% - 56px);
+    font: 900 20px '';
+    letter-spacing: 5px;
+}
+
+/* even 偶数行 */
+.item:nth-child(even) {
+    /* align-self 会对齐当前 grid 或 flex 行中的元素 */
+    /* flex 元素会对齐到 cross-axis 的尾端。 */
+    align-self: flex-end;
+}
+
+.item:nth-child(even):before {
+    right: auto;
+    text-align: right;
+    left: calc(-100% - 56px);
+    padding-left: 0;
+    border-left: none;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    padding-right: 15px;
+}
+
+.item--active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+}
+
+.item--active:before {
+    top: 50%;
+    transition: 0.3s all 0.2s;
+    opacity: 1;
+}
+
+.item--active .content-title {
+    margin: -50px 0 20px 0;
+}
+
+.img {
+    max-width: 100%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+}
+
+.footer {
+    padding: 95px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: #999;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+    .item {
+        align-self: baseline !important;
+        width: 100%;
+        padding: 0 30px 150px 80px;
+    }
+
+    .item::before {
+        left: 10px !important;
+        padding: 0 !important;
+        top: 50px;
+        text-align: center !important;
+        width: 60px;
+        border: none !important;
+    }
+
+    .item:last-child {
+        padding-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .timeline::before {
+        left: 40px;
+    }
+}
+.bon {
+    border-radius: 25%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    /* 行高  */
+    line-height: 50px;
+    transition: .3s;
+    /* 鼠标放上去变小手 */
+    cursor: pointer;
+}
+
+.bon:hover {
+    background-color: #d15a39;
+}
+
+.bon li:hover {
+    background-color: #ffb29d;
+}
+
+.bon ul li {
+    border-radius: 25%;
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: #e07a5f;
+}
+
+.bon:hover li {
+    height: 50px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dj {
+    position: fixed;
+    top: 500px;
+    right: 20px;
+    justify-content: center;
+}
